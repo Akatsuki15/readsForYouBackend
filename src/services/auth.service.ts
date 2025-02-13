@@ -1,4 +1,4 @@
-import { HttpException } from "@/exceptions/httpException";
+import { HttpException } from "../exceptions/httpException";
 import { prisma } from "../database/database"
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt"
