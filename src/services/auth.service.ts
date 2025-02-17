@@ -24,6 +24,7 @@ export class AuthService{
             }
         })
     }
+    
     static async login(email: string, password: string){
         const findUser = await prisma.user.findUnique({where: {email}})
         if(!findUser) throw new HttpException(401, 'Invalid user or password')

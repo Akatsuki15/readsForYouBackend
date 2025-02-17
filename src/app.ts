@@ -1,6 +1,7 @@
 import express, {Response, Request} from 'express'
 import authRouter from './routes/auth.routes'
 import userRouter from './routes/user.routes'
+import bookRouter from './routes/book.routes'
 import helmet from 'helmet'
 import compression from 'compression'
 import cookieParser from 'cookie-parser'
@@ -33,6 +34,7 @@ app.use(limiter)
 
 app.use('/api/auth', authRouter)
 app.use('/api/users', userRouter)
+app.use('/api/books', bookRouter)
 
 app.get('/', (req: Request, res: Response)=>{
     res.send('Bienvenido al backend (api)')

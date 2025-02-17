@@ -13,6 +13,7 @@ export class AuthControler{
             res.status(409).json({message: 'Fallo al registrar al usuario ' + error})
         }
     }
+
     static async login(req: Request, res: Response, next: NextFunction){
         try{
             const userData = req.body
@@ -27,6 +28,15 @@ export class AuthControler{
             })
             res.status(201).json({message:'Login successfully', token})
         }catch(error){
+            next(error)
+        }
+    }
+
+    static async logout(req: Request, res: Response, next: NextFunction){
+        try {
+            res.clearCookie('token')
+            res.status(200).json({message:'Logout successfully'})
+        } catch (error) {
             next(error)
         }
     }
