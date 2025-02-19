@@ -38,6 +38,6 @@ export class AuthService{
             {expiresIn: "1h"}
         )
 
-        return token
+        return {token, user: { id: findUser.id, email: findUser.email } }
     }
 }
