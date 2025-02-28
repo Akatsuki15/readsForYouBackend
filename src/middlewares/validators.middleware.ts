@@ -19,6 +19,10 @@ export const bookValidation = [
     body('published').optional().isISO8601().withMessage('Formato de fecha incorrecto')
 ]
 
+export const genreValidation = [
+    body('name').notEmpty().withMessage('Name required')
+]
+
 export const rateValidation = [
     body('value').isInt({min: 0, max: 5}).toInt().withMessage('Value is required')
 ]
